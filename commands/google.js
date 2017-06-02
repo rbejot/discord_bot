@@ -1,4 +1,6 @@
 const Command = require('./command')
+const cheerio = require('cheerio')
+const request = require('request')
 
 module.exports = class Google extends Command {
     static match (message) {
@@ -9,6 +11,6 @@ module.exports = class Google extends Command {
         let argv = message.content.split(' ')
         argv.shift()
         message.delete()
-        message.reply('https://www.google.fr/#q=' + argv.join('%20'))
+        message.reply('http://www.google.com/search?q=' + argv.join('+')+ '&btnI')
     }
 }
