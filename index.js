@@ -1,10 +1,12 @@
 const Discord = require('discord.js')
 const bot = new Discord.Client()
 const Google = require('./commands/google')
+const Ping = require('./commands/ping')
+const Play = require('./commands/play')
 const env = require('./env.js')
 
 bot.on('ready', function() {
-    bot.user.setAvatar('./84431199dfee933296c49be8a66ee074.jpg').catch(console.error)
+    bot.user.setAvatar('./avatar/84431199dfee933296c49be8a66ee074.jpg').catch(console.error)
     bot.user.setGame('Ramadan').catch(console.error)
 })
 
@@ -12,9 +14,7 @@ bot.on('message', function (message) {
     if (message.content == 'ping') {
         message.channel.send('pong')
     }
-    if (Google.match(message)) {
-        return Google.action(message)
-    }
+    let commandUsed = Google.parse(message) || Ping.parse(message)
 })
 
 bot.on('guildMemberAdd', function(member) {
