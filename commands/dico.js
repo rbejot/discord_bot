@@ -12,7 +12,6 @@ module.exports = class Dico extends Command {
         argv.shift()
         message.delete()
         this.etymologie('https://fr.wiktionary.org/wiki/' + argv.join('%20'), message, argv)
-        // message.reply('https://fr.wiktionary.org/wiki/' + argv.join('%20'))
     }
 
     static etymologie (page, message, argv) {
