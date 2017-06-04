@@ -14,6 +14,7 @@
     "express": "^4.15.3",
     "ffmpeg": "0.0.4",
     "fluent-ffmpeg": "^2.1.2",
+    "jsonfile": "^3.0.0",
     "nodemon": "^1.11.0",
     "opusscript": "0.0.3",
     "request": "^2.81.0",

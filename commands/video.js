@@ -5,7 +5,7 @@ const YoutubeStream = require('youtube-audio-stream')
 
 module.exports = class Video extends Command {
     static match (message) {
-        return message.content.startsWith('!video')
+        return message.content.startsWith('!vid')
     }
 
     static action (message) {

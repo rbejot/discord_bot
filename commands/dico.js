@@ -24,7 +24,7 @@ module.exports = class Dico extends Command {
                 message.reply("Je ne parle pas cette langue barbare.")
             } else { message.reply("Voici l'étymologie de " + argv + " : " + def) }
           } else {
-            message.reply("Je ne parle pas cette langue")
+            message.reply("Je ne parle pas cette langue.")
           }
         });
     }

@@ -4,7 +4,7 @@ const request = require('request')
 
 module.exports = class Citations extends Command {
     static match (message) {
-        return message.content.startsWith('!citation')
+        return message.content.startsWith('!cit')
     }
 
     static action (message) {
@@ -19,7 +19,7 @@ module.exports = class Citations extends Command {
             var $ = cheerio.load(body),
             def = $("q").text();
             auteur = $(".auteurLien").text()
-            message.reply(def + " - " + auteur)
+            message.channel.send("@everyone " + def + " - " + auteur)
         })
     }
 }
