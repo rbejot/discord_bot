@@ -11,10 +11,11 @@ module.exports = class Cleverbot extends Command {
 
     static action (message) {
         let argv = message.content.toLowerCase().split(' ')
-        argv.splice("rachid", -1)
-        argv.splice("rachid,", -1)
-        argv = argv.join(' ')
-        this.clever('http://www.cleverbot.com/getreply?key=' + env.cleverbot + '&input=' + argv, message)
+        var filtered = argv.filter(function(element){
+            return element !== "rachid"
+        })
+        console.log(filtered)
+        this.clever('http://www.cleverbot.com/getreply?key=' + env.cleverbot + '&input=' + filtered, message)
     }
 
     static clever(url, message) {
