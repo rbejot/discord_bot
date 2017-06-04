@@ -4,12 +4,15 @@ const env = require('../env.js')
 
 module.exports = class Cleverbot extends Command {
     static match (message) {
-        return message.content.toLowerCase().startsWith('rachid')
+        var rachid = message.content.toLowerCase().split(' ')
+        if (rachid.indexOf('rachid') != -1 || rachid.indexOf('rachid,') != -1)
+            return message.content
     }
 
     static action (message) {
-        let argv = message.content.split(' ')
-        argv.shift()
+        let argv = message.content.toLowerCase().split(' ')
+        argv.splice("rachid", -1)
+        argv.splice("rachid,", -1)
         argv = argv.join(' ')
         this.clever('http://www.cleverbot.com/getreply?key=' + env.cleverbot + '&input=' + argv, message)
     }

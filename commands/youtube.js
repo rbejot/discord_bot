@@ -12,10 +12,12 @@ module.exports = class Play extends Command {
             .first()
         let args = message.content.split(' ')
         message.delete()
+        voiceChannel.leave()
         voiceChannel
             .join()
             .then(function (connection) {
                 let stream = YoutubeStream(args[1])
+                message.channel.send(args[1])
                 connection.playStream(stream).on('end', function () {
                     // connection.disconnect()
                 })
